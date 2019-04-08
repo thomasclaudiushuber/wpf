@@ -94,7 +94,7 @@ namespace System.Windows.Markup
                 return;
             }
 
-            List<Assembly> interestingAssemblies = new List<Assembly>();
+            var interestingAssemblies = new List<Assembly>();
 
             // Load all the assemblies into a list.
             foreach(string assemblyName in _assemblyPathTable.Keys)
@@ -224,8 +224,8 @@ namespace System.Windows.Markup
 #if PBTCOMPILER
         private CustomAttributeData[] GetAttributes(Assembly asm, string fullClrName)
         {
-            IList<CustomAttributeData> allAttributes = CustomAttributeData.GetCustomAttributes(asm);
-            List<CustomAttributeData> foundAttributes = new List<CustomAttributeData>();
+            var allAttributes = CustomAttributeData.GetCustomAttributes(asm);
+            var foundAttributes = new List<CustomAttributeData>();
             for(int i=0; i<allAttributes.Count; i++)
             {
                 // get the Constructor info
@@ -288,14 +288,14 @@ namespace System.Windows.Markup
 
         private void GetNamespacesFromDefinitionAttr(Attribute attr, out string xmlns, out string clrns)
         {
-            XmlnsDefinitionAttribute xmlnsAttr  = (XmlnsDefinitionAttribute)attr;
+            var xmlnsAttr  = (XmlnsDefinitionAttribute)attr;
             xmlns = xmlnsAttr.XmlNamespace;
             clrns = xmlnsAttr.ClrNamespace;
         }
 
         private void GetNamespacesFromCompatAttr(Attribute attr, out string oldXmlns, out string newXmlns)
         {
-            XmlnsCompatibleWithAttribute xmlnsCompat = (XmlnsCompatibleWithAttribute)attr;
+            var xmlnsCompat = (XmlnsCompatibleWithAttribute)attr;
             oldXmlns = xmlnsCompat.OldNamespace;
             newXmlns = xmlnsCompat.NewNamespace;
         }
@@ -345,7 +345,7 @@ namespace System.Windows.Markup
                                                     Assembly[] asmList,
                                                     string xmlnsRequested )
         {
-            List<ClrNamespaceAssemblyPair> pairList = new List<ClrNamespaceAssemblyPair>();
+            var pairList = new List<ClrNamespaceAssemblyPair>();
 
             // For each assembly, enmerate all the XmlnsDefinition attributes.
             for(int asmIdx=0; asmIdx<asmList.Length; asmIdx++)
@@ -433,39 +433,23 @@ namespace System.Windows.Markup
         // constructor
         internal ClrNamespaceAssemblyPair(string clrNamespace,string assemblyName)
         {
-            _clrNamespace = clrNamespace;
-            _assemblyName = assemblyName;
+            ClrNamespace = clrNamespace;
+            AssemblyName = assemblyName;
 #if PBTCOMPILER
-            _localAssembly = false;
+            LocalAssembly = false;
 #endif
         }
 
         // AssemblyName specified in the using Data
-        internal string AssemblyName
-        {
-            get { return _assemblyName; }
-        }
+        internal string AssemblyName { get; }
 
         // ClrNamespace portion of the using syntax
-        internal string ClrNamespace
-        {
-            get { return _clrNamespace; }
-        }
+        internal string ClrNamespace { get; }
 
 #if PBTCOMPILER
 
-        internal bool LocalAssembly
-        {
-            get { return _localAssembly; }
-            set { _localAssembly = value; }
-        }
+        internal bool LocalAssembly { get; set; }
 #endif
-
-#if PBTCOMPILER
-        bool _localAssembly;
-#endif
-        string _assemblyName;
-        string _clrNamespace;
     }
 
 }
