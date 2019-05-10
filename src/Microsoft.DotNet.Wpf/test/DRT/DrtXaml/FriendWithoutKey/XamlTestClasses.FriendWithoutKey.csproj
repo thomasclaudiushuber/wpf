@@ -1,11 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-  <PropertyGroup>
-    <AssemblyName>BamlTestClasses40</AssemblyName>
+    <PropertyGroup>
+    <AssemblyName>XamlTestClasses.FriendWithoutKey</AssemblyName>
     <OutputType>Library</OutputType>
     <DefineConstants>$(DefineConstants);OLDRESOURCES</DefineConstants>
     <TestCode>true</TestCode>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DefineConstants>TRACE</DefineConstants>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
-
+  <ItemGroup>
+    <Compile Include="FriendWithoutKey.cs" />
+  </ItemGroup>
 </Project>
