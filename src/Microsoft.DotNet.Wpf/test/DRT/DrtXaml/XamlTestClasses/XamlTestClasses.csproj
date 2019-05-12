@@ -4,6 +4,9 @@
     <RootNamespace>XamlTestClasses</RootNamespace>
     <Platforms>AnyCPU;x64</Platforms>
     <UseWPF>true</UseWPF>
+    <OutputType>Library</OutputType>
+    <DefineConstants>$(DefineConstants);OLDRESOURCES</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   
   <PropertyGroup>

@@ -3,7 +3,6 @@
     <AssemblyName>BamlTestClasses40</AssemblyName>
     <OutputType>Library</OutputType>
     <DefineConstants>$(DefineConstants);OLDRESOURCES</DefineConstants>
-    <TestCode>true</TestCode>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
