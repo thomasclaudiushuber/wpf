@@ -6,8 +6,6 @@
     <GenerateAssemblyAttribute>false</GenerateAssemblyAttribute>
     <AddTargetFrameworkAttributeToWpfTestExe>true</AddTargetFrameworkAttributeToWpfTestExe>
 
-    <!-- Avoid auto-generating a main -->
-    <InternalMarkupCompilation>true</InternalMarkupCompilation>
   </PropertyGroup>
 
   <PropertyGroup>
