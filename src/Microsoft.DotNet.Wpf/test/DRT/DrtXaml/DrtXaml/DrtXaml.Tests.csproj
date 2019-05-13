@@ -2,16 +2,15 @@
   <PropertyGroup>
     <AssemblyName>DrtXaml</AssemblyName>
     <RootNamespace>DrtXaml</RootNamespace>
-    <ApplicationIcon />
-    <OutputType>Library</OutputType>
-    <StartupObject />
+    <LinkSubsystem>console</LinkSubsystem>
+    <OutputType>WinExe</OutputType>
     <Platforms>AnyCPU;x64</Platforms>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <PropertyGroup>
     <IsTestProject>true</IsTestProject>
-    <IsIntegrationTestProject>true</IsIntegrationTestProject>
+    <IsIntegrationTestProject>false</IsIntegrationTestProject>
   </PropertyGroup>
   
   <ItemGroup>
@@ -22,10 +21,4 @@
     <ProjectReference Include="..\XamlTestClasses.FriendWithoutKey\XamlTestClasses.FriendWithoutKey.csproj" />
     <ProjectReference Include="..\XamlTestClasses\XamlTestClasses.csproj" />
   </ItemGroup>
-
-  <PropertyGroup>
-    <!-- This ensures that .json, .pdb, .deps.json, .runtimeconfig.json, .runtimeconfig.dev.json files that are related to referenced projects, will -->
-    <!-- be copied over to the output folder when the build is completed. -->
-    <AllowedReferenceRelatedFileExtensions>$(AllowedReferenceRelatedFileExtensions);.json;.pdb;.deps.json;.runtimeconfig.json;.runtimeconfig.dev.json;</AllowedReferenceRelatedFileExtensions>
-  </PropertyGroup>
 </Project>
